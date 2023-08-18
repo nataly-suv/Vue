@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block {
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h5>ввод через enter</h5>
+      <input type="text" @keyup.enter="send()" />
+      <button @click="send()">отправить</button>
+      <!-- v-on:keyup.enter="send()" - отправит данные при нажатии enter  -->
+      <!-- v-on можно заменить на  @ -->
+
+      <button
+        style="background: rgb(149, 183, 233); border: none; width: 100vh"
+      ></button>
+      <p></p>
+
+      <h5>ввод через пробел</h5>
+      <input type="text" v-on:keyup.space="send()" />
+      <button @click="send()">отправить</button>
+      <!-- v-on:keyup.enter="send()" - отправит данные при нажатии пробел  -->
+
+      <p></p>
+      <button
+        style="background: rgb(149, 183, 233); border: none; width: 100vh"
+      ></button>
+      <p></p>
+
+      <h5>ссылка через v-bind</h5>
+      <a v-bind:href="myLink">ссылка на яндекс</a>
+      <!-- привязать data к атрибуту. Ссылка-->
+
+      <p></p>
+      <button
+        style="background: rgb(149, 183, 233); border: none; width: 100vh"
+      ></button>
+      <p></p>
+
+      <h5>сокращенный вариант v-bind</h5>
+      <a :href="myLink">ссылка на яндекс</a>
+      <!-- сокращенный вариант  v-bind-->
+
+      <p></p>
+      <button
+        style="background: rgb(149, 183, 233); border: none; width: 100vh"
+      ></button>
+      <p></p>
+
+      <h5>фото через bind</h5>
+      <img :src="foto" width="200" alt="foto" />
+      <p></p>
+      <!-- фото через  v-bind-->
+
+      <!-- блок. задаем параметры через v-binb-->
+      <div class="block" :style="slyleBlock">Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+
+        data: {
+          myLink: "https://ya.ru/",
+          foto: "piace.jpg",
+          slyleBlock: {
+            backgroundColor: "red",
+            color: "blue",
+          },
+        },
+        methods: {
+          send() {
+            console.log("отправили данные");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

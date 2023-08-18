@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list{
+            font-size: 20px;
+        }
+        .el {
+            margin-bottom: 10px;
+        }
+        .btn {
+            width: 15px;
+            height: 15px;
+            font-size: 14px;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+          }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul class="list">
+            <li class="el" v-for="(item, index) in list" :key="index">{{item}} 
+                <button class="btn" @click="delElement(index)">X</button>
+            </li>
+        </ul>
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                list: ['первый', 'второй', 'третий', 'четвертый', 'пятый'],
+            },
+            methods: {
+                delElement(index) {
+                    this.list.splice(index, 1)
+                },
+            },
+        })
+
+    </script>
+</body>
+</html>

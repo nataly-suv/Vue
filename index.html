@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="task1">
+      <h1>Товаров в корзине {{counter}}</h1>
+      <button @click="onClick()">Кнопка 1</button>
+      <button @click="onClick()">Кнопка 2</button>
+      <button @click="onClick()">Кнопка 3</button>
+      <button @click="onClick()">Кнопка 4</button>
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#task1",
+        data: {
+          counter: 0,
+        },
+        methods: {
+            onClick () {
+                this.counter++;                
+            },
+        },
+     
+      });
+    </script>
+
+
+
+  </body>
+</html>

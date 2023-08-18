@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-model -->
+    <h1>v-model</h1>
+
+    <div id="app">
+      <input type="text" v-model="modelData" />
+
+      <h5>отображение текста на экране при вводе в форме</h5>
+      <h6>{{modelData2}}</h6>
+      <input type="text" v-model="modelData2" />
+
+      <h5>алгоритм с условием</h5>
+      <h6>{{modelData3}}</h6>
+      <input type="text" v-model="modelData3" />
+      <button @click="inputText">нажать</button>
+
+      <!-- КАЛЬКУЛЯТР -->
+      <h4>калькулятор</h4>
+      <input type="text" v-model.number="firstNumber" />
+      <input type="text" v-model.number="secondNumber" />
+      = {{ result }}
+      <div>
+        <button @click="plus">+</button>
+        <button @click="minus">-</button>
+        <button @click="mult">*</button>
+        <button @click="div">/</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          modelData: "",
+          modelData2: "",
+          modelData3: "",
+
+          firstNumber: 0,
+          secondNumber: 0,
+          result: 0,
+        },
+        methods: {
+          inputText() {
+            if (this.modelData3 === "") {
+              this.modelData3 = "заголовок для блока";
+            } else {
+            }
+          },
+
+          plus() {
+            this.result = this.firstNumber + this.secondNumber;
+          },
+          minus() {
+            this.result = this.firstNumber - this.secondNumber;
+          },
+          mult() {
+            this.result = this.firstNumber * this.secondNumber;
+          },
+          div() {
+            this.result = this.firstNumber / this.secondNumber;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

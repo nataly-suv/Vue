@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seminar2-3</title>
+  </head>
+  <body>
+    <!-- Вы разрабатываете приложение для создания списка покупок. 
+      У вас есть массив объектов items, где каждый объект представляет 
+      товар с его названием и количеством. Вам необходимо отобразить список товаров, 
+      предоставить возможность изменять количество каждого товара и отмечать товары, которые уже куплены. -->
+
+    <div id="app">
+      <ul>
+        <li
+          v-for="item in items"
+          :key="item.id"
+          :class="{ bought: item.bought, 'out-of-stock': item.quantity === 0 }"
+        >
+          <input type="text" v-model="item.quantity" />
+          <input type="checkbox" v-model="item.bought" />
+          <span>{{ item.name }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          items: [
+            { id: 1, name: "Молоко", quantity: 2, bought: false },
+            { id: 2, name: "Хлеб", quantity: 1, bought: true },
+            { id: 3, name: "Яблоки", quantity: 5, bought: false },
+            { id: 4, name: "Мясо", quantity: 0, bought: false },
+          ],
+        },
+
+        methods: {
+          name() {},
+        },
+      });
+    </script>
+  </body>
+</html>
